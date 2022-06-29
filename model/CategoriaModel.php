@@ -1,9 +1,9 @@
 <?php
-require "../config/Conexao.php";
+require "config/Conexao.php";
     class CategoriaModel{
 
         function __construct(){
-            $this->conexao = Conexao;
+            $this->conexao = Conexao::getConnection();
         }
 
         function inserir($nome){
@@ -29,11 +29,12 @@ require "../config/Conexao.php";
 
         function buscarTodos(){
             $sql = "SELECT * FROM categoria";
-            $comando = $this->conexao->prepare($sql);
-            if($comando->execute()){
-            return $resultado->fetch_all(MYSQLI_ASSOC);
+            $result = $this->conexao->prepare($sql);
+            if($result->execute()){
+                $result = $result->get_result();
+                $result = $result->fetch_all(MYSQLI_ASSOC);
             }
-            return null;
+            return $result;
         } 
 
         function buscarPorId($id){

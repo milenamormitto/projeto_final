@@ -1,16 +1,19 @@
 <?php
 
-    require "../model/CategoriaModel.php";
+    require "model/CategoriaModel.php";
+    require "controller/Controller.php";
 
-    class Categoria{
+    class Categoria extends Controller{
         function __construct(){
             $this->model = new CategoriaModel();
         }
+
         function index(){
-            var_dump($this->model->buscarTodos(1));
+            $categorias = $this->load_template("categoria/listagem.php", $categorias);
+            $this->load_template("categoria/listagem.php");
         }
         function inserir(){
-            echo "Testando função inserir";
+
         }
     }
 

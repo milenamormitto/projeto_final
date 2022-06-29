@@ -11,8 +11,8 @@ class Conexao{
 
     if(!self::$con){
         self::$con = new mysqli($ip, $user, $pass, $db, $port);
-        if($con->connect_error){
-            echo $con->connect_error;
+        if(self::$con->connect_error){
+            echo self::$con->connect_error;
         die();
         }
     }
