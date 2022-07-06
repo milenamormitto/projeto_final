@@ -9,11 +9,18 @@
         }
 
         function index(){
-            $categorias = $this->load_template("categoria/listagem.php", $categorias);
-            $this->load_template("categoria/listagem.php");
+            $categorias = $this->model->buscarTodos();
+            $this->load_template("categoria/listagem.php", $categorias);
+            include "view/template/cabecalho.php";
+            include "view/template/footer.php";
+            include "view/template/menu.php";
+            include "view/categoria/listagem.php";
         }
         function inserir(){
 
+        }
+        function excluir($id){
+            $this->model->exluir($id);
         }
     }
 

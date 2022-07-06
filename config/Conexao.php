@@ -12,7 +12,7 @@ class Conexao{
     if(!self::$con){
         self::$con = new mysqli($ip, $user, $pass, $db, $port);
         if(self::$con->connect_error){
-            echo self::$con->connect_error;
+            echo "Ocorreu um erro.". self::$con->connect_error;
         die();
         }
     }

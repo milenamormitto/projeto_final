@@ -1,5 +1,5 @@
 <?php
-require "config/Conexao.php";
+    require "config/Conexao.php";
     class CategoriaModel{
 
         function __construct(){
@@ -50,5 +50,6 @@ require "config/Conexao.php";
 
 
         } 
+    $model = new CategoriaModel();
 
 ?>
